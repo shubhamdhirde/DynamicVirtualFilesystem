@@ -892,26 +892,26 @@ int LseekFile(int fd, int size, int from)
 
             (UFDTArr[fd].ptrfiletable->writeoffset) = (UFDTArr[fd].ptrfiletable->writeoffset) + size;    
         }
-    }
-    else if(from == START)
-    {
-        if(size > MAXFILESIZE) 
-            return -1;
-        if(size < 0) 
-            return -1;
+        else if(from == START)
+        {
+            if(size > MAXFILESIZE) 
+                return -1;
+            if(size < 0) 
+                return -1;
 
-        if(size > (UFDTArr[fd].ptrfiletable->ptrinode->FileActualSize))
-            (UFDTArr[fd].ptrfiletable->ptrinode->FileActualSize) = size;
+            if(size > (UFDTArr[fd].ptrfiletable->ptrinode->FileActualSize))
+                (UFDTArr[fd].ptrfiletable->ptrinode->FileActualSize) = size;
 
-        (UFDTArr[fd].ptrfiletable->writeoffset) = size;
-    }
-    else if(from == END)
-    {
-        if((UFDTArr[fd].ptrfiletable->ptrinode->FileActualSize) + size > MAXFILESIZE)
-            return -1;
-        if(((UFDTArr[fd].ptrfiletable->writeoffset) + size) < 0) 
-            return -1;
+            (UFDTArr[fd].ptrfiletable->writeoffset) = size;
+        }
+        else if(from == END)
+        {
+            if((UFDTArr[fd].ptrfiletable->ptrinode->FileActualSize) + size > MAXFILESIZE)
+                return -1;
+            if(((UFDTArr[fd].ptrfiletable->writeoffset) + size) < 0) 
+                return -1;
 
-        (UFDTArr[fd].ptrfiletable->writeoffset) = (UFDTArr[fd].ptrfiletable->ptrinode->FileActualSize) + size;
+            (UFDTArr[fd].ptrfiletable->writeoffset) = (UFDTArr[fd].ptrfiletable->ptrinode->FileActualSize) + size;
+        }    
     }
 }
