@@ -1,7 +1,7 @@
 # DynamicVirtualFilesystem  
 This is research oriented project which emulates Linux File System.  
 It provides necessary commands, System call implementation of file system through customized shell. In this project all the necessary data structures are implemented like Incore Inode Table,File Table,UAREA, User File Descriptor Table etc.    
-####### System call wriiten in this project are witten by refereing oprating systems algorithms. #######  
+###### System call wriiten in this project are witten by refereing oprating systems algorithms. ######  
 ## System call provided  
 1. Create  
 2. Open  
